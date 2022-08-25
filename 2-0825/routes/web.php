@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\TestController;
 
+use App\Http\Controllers\CarController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +20,14 @@ use App\Http\Controllers\TestController;
 */
 
 // 下午課程
+
+// 練習三
+// 建立CarController
+// index
+// car.index.blade.php
+Route::get('/car',[CarController::class, 'carFun']);
+
+
 
 // single controller
 Route::get('/test',[TestController::class, 'testFun']);
@@ -36,6 +46,7 @@ Route::prefix('admin')->group(function () {
         return view('1500.product');
     });
 });
+
 
 
 Route::get('/eat/{name}/{num}',function ($name,$num){
