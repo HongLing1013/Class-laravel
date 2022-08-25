@@ -13,6 +13,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// 下午課程
+
+
+// url/{變數}
+
+// php artisan 
+
+// 兩個變數
+Route::get('/greeting/{name}/{num}', function ($name,$num) {
+    $str = "Hello $name , num => $num";
+    return $str;
+});
+
+// 一個變數
+Route::get('/greeting/{name}', function ($name) {
+    $str = "Hello $name";
+    return $str;
+});
+
+// 沒有變數
+Route::get('/greeting', function () {
+    return "Hello";
+});
+
+
+
+
+// 上午課程
 Route::get('/oop', function () {
     return view('1010.oop');
 });
