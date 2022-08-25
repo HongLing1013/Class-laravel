@@ -15,11 +15,17 @@ use Illuminate\Support\Facades\Route;
 
 // 下午課程
 
+Route::get('/eat/{name}/{num}',function ($name,$num){
+    $date = [
+        'name' => $name,
+        'num' => $num
+    ];
+    return view('1300.eat',['data'=>$date]);
+});
 
 // url/{變數}
 
-// php artisan 
-
+// php artisan route:list
 // 兩個變數
 Route::get('/greeting/{name}/{num}', function ($name,$num) {
     $str = "Hello $name , num => $num";
