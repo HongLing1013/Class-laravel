@@ -15,6 +15,22 @@ use Illuminate\Support\Facades\Route;
 
 // 下午課程
 
+// admin prefix
+// 把取得網址的那些function整合成一個function
+Route::prefix('admin')->group(function () {
+    Route::get('/student',function () {
+        // Matches The "/admin/users" URL
+        // dd('admin student');
+        return view('1500.student');
+    });
+    Route::get('/product',function () {
+        // Matches The "/admin/users" URL
+        // dd('admin product');
+        return view('1500.product');
+    });
+});
+
+
 Route::get('/eat/{name}/{num}',function ($name,$num){
     $date = [
         'name' => $name,
