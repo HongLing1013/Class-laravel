@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+use Illuminate\Http\Request;
+
+use App\Http\Controllers\TestController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 // 下午課程
+
+// single controller
+Route::get('/test',[TestController::class, 'testFun']);
 
 // admin prefix
 // 把取得網址的那些function整合成一個function
