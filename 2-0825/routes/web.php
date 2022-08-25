@@ -13,15 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/oop', function () {
+    return view('1010.oop');
+});
 Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/f1', function () {
-    return view('new.f1');
+    return view('0810.f1');
 });
 Route::get('/f2', function () {
-    return view('new.f2');
+    return view('0810.f2');
 });
 Route::get('/f3', function () {
-    return view('new.f3');
+    return view('0810.f3');
 });
