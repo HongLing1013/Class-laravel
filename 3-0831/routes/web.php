@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controller\StudentController;
-
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\BikeController;
+ 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +14,20 @@ use App\Http\Controller\StudentController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+ 
+Route::resource('bikes', BikeController::class);
+
 Route::get('/student', [StudentController::class, 'index']);
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/student1010/{name}/{num}',function ($name,$num){
+    $date = [
+        'name' => $name,
+        'num' => $num
+    ];
+    return view('student1010',['data'=>$date]);
+});
