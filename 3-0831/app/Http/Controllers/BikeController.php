@@ -18,7 +18,14 @@ class BikeController extends Controller
         //view('bike123.index') 不等於 route('bike.index')
         // $url = route('bikes.edit', ['bike' => 1 ]);
         // dd($url);
-        return view('bike.index');
+
+        $myArr = [1,2,3];
+        $data =[
+            'myArr' => $myArr,
+            'v1' => 11 ,
+            'v2' =>12
+        ];
+        return view('bike.index',['data' => $data, 'v1' => 11 , 'v2' => 22]);
     }
 
     /**

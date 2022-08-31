@@ -24,6 +24,29 @@
 
   <br>
   <a href="{{route('student')}}">student btn</a>
+  <br>
+  {{-- 單純echo --}}
+  {{$data['v1']}}
+  <br>
+  {{$data['v2']}}
+
+
+  <br>
+  @php
+  // dd($data);
+  // var_dump($data);
+  // echo ($data['myArr']); 會出現錯誤訊息 所以得用foreach才行
+  // foreach ($data['myArr'] as $key => $value){
+  //   echo("$key=>$value<br>");
+  // }
+  @endphp
+
+  {{-- 這個@foreach等同上方foreach --}}
+  @foreach ($data['myArr'] as $key => $value)
+    {{-- 內放字串 (可放html) --}}
+    <a href="http://">{{$value}}</a>
+  @endforeach
+
 
 </body>
 </html>
