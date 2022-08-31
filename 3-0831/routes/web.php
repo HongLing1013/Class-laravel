@@ -17,7 +17,7 @@ use App\Http\Controllers\BikeController;
  
 Route::resource('bikes', BikeController::class);
 
-Route::get('/student', [StudentController::class, 'index']);
+Route::get('/student', [StudentController::class, 'index'])->name('student');
 
 Route::get('/', function () {
     return view('welcome');

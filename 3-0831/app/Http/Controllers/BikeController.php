@@ -14,8 +14,10 @@ class BikeController extends Controller
     public function index()
     {
         // dd('bikes index');
-        // bike.index
-        // folder.file
+        // view('folder.filename')不等於route('routename.routeaction')
+        //view('bike123.index') 不等於 route('bike.index')
+        // $url = route('bikes.edit', ['bike' => 1 ]);
+        // dd($url);
         return view('bike.index');
     }
 
@@ -59,7 +61,7 @@ class BikeController extends Controller
      */
     public function edit($id)
     {
-        //
+        dd($id);
     }
 
     /**
