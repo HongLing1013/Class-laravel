@@ -27,9 +27,9 @@
   @endphp
 
 <div class="container">
-  <h2>Hover Rows</h2>
-  <p>The .table-hover class enables a hover state (grey background on mouse over) on table rows:</p>    
-  <a href="{{route('students.create')}}" class="btn btn-success" role="button">add</a>        
+  <h2>新增資料</h2>  
+  <a href="#" class="mb-3 btn btn-success" role="button">add</a>    
+      {{-- w3schools --}}
   <table class="table table-hover">
     <thead>
       <tr>
@@ -41,15 +41,9 @@
       </tr>
     </thead>
     <tbody>
-      @foreach ($data as $item)
       <tr>
-        <td>{{$item->id}}</td>
-        <td>{{$item->name}}</td>
-        <td>{{$item->chinese}}</td>
-        <td>{{$item->english}}</td>
-        <td>{{$item->math}}</td>
-      </tr>    
-      @endforeach
+
+      </tr>
       </tr>
     </tbody>
   </table>

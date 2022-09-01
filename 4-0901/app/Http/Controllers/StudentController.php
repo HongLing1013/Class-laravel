@@ -18,7 +18,6 @@ class StudentController extends Controller
         // model Student data抓出來 透過ORM
         // 存在$data
         $data = Student::all();
-        dd($data);
 
         // foreach(Student::all() as $student) {
         //     echo $student->name;
@@ -30,5 +29,23 @@ class StudentController extends Controller
         // return view('student.index');
 
         return view('student.index', ['data'=>$data]);
+    }
+    public function create()
+    {
+
+        // model Student data抓出來 透過ORM
+        // 存在$data
+        $data = Student::all();
+
+        // foreach(Student::all() as $student) {
+        //     echo $student->name;
+        // }
+
+        // $url = asset('css/style.css');
+        // dd($url);
+        // dd('student index 0901');
+        // return view('student.index');
+
+        return view('student.create', ['data'=>$data]);
     }
 }

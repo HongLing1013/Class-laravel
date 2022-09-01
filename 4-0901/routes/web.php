@@ -16,7 +16,7 @@ use App\Http\Controllers\StudentController;
 |
 */
 
-Route::get('/student', [StudentController::class, 'index']);
+Route::resource('/students', StudentController::class);
 
 // Route::get('/student', function () {
 //     return view('student.index');
