@@ -27,36 +27,35 @@
   @endphp
 
 <div class="container">
-  <h2>Hover Rows</h2>
-  <p>The .table-hover class enables a hover state (grey background on mouse over) on table rows:</p>    
-  <a href="{{route('students.create')}}" class="btn btn-success" role="button">add</a>        
+  <h2>新增資料</h2>  
+  <a href="#" class="mb-3 btn btn-success" role="button">add</a>    
+      {{-- w3schools --}}
   <table class="table table-hover">
     <thead>
       <tr>
-        <th>id</th>
+        {{-- <th>id</th> --}}
         <th>name</th>
         <th>chinese</th>
         <th>english</th>
         <th>math</th>
-        <th>edit/del</th>
       </tr>
     </thead>
-    <tbody>
-      @foreach ($data as $item)
-      <tr>
-        <td>{{$item->id}}</td>
-        <td>{{$item->name}}</td>
-        <td>{{$item->chinese}}</td>
-        <td>{{$item->english}}</td>
-        <td>{{$item->math}}</td>
-        <td>
-          <a href="{{route('students.edit',['student' => $item->id])}}" class="btn btn-warning" role="button">edit</a>
-          <a href="{{route('students.create')}}" class="btn btn-danger" role="button">del</a>
-        </td>
-      </tr>    
-      @endforeach
-      </tr>
-    </tbody>
+    <form action="{{route('students.update')}}" method="post">
+      @csrf
+      <tbody>
+        <tr>
+          <td><input type="text" name="name" id="name"></td>
+          <td><input type="number" name="chinese" id="chinese"></td>
+          <td><input type="number" name="english" id="english"></td>
+          <td><input type="number" name="math" id="math"></td>
+        </tr>
+        <tr>
+          <td colspan="4">
+            <input type="submit" value="add submit">
+          </td>
+        </tr>
+      </tbody>
+    </form>
   </table>
 </div>
 
