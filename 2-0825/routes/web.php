@@ -34,18 +34,7 @@ Route::get('/test',[TestController::class, 'testFun']);
 
 // admin prefix
 // 把取得網址的那些function整合成一個function
-Route::prefix('admin')->group(function () {
-    Route::get('/student',function () {
-        // Matches The "/admin/users" URL
-        // dd('admin student');
-        return view('1500.student');
-    });
-    Route::get('/product',function () {
-        // Matches The "/admin/users" URL
-        // dd('admin product');
-        return view('1500.product');
-    });
-});
+
 
 
 
