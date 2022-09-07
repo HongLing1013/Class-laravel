@@ -33,24 +33,28 @@
   <table class="table table-hover">
     <thead>
       <tr>
-        {{-- <th>id</th> --}}
+        <th>id</th>
         <th>name</th>
         <th>chinese</th>
         <th>english</th>
         <th>math</th>
       </tr>
     </thead>
-    <form action="{{route('students.update')}}" method="post">
+    <form action="{{route('students.update',['student'=>$data->id])}}" method="post">
       @csrf
+      @method('PUT')
       <tbody>
         <tr>
+          <td>
+            {{$data->id}}
+          </td>
           <td><input type="text" name="name" id="name"></td>
           <td><input type="number" name="chinese" id="chinese"></td>
           <td><input type="number" name="english" id="english"></td>
           <td><input type="number" name="math" id="math"></td>
         </tr>
         <tr>
-          <td colspan="4">
+          <td colspan="5">
             <input type="submit" value="add submit">
           </td>
         </tr>

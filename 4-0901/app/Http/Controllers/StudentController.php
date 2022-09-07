@@ -17,7 +17,8 @@ class StudentController extends Controller
 
         // model Student data抓出來 透過ORM
         // 存在$data
-        $data = Student::all();
+        // $data = Student::all();
+        $data = Student::orderBy('id','desc')->get();
 
         // foreach(Student::all() as $student) {
         //     echo $student->name;
@@ -55,7 +56,7 @@ class StudentController extends Controller
         // dd($request->all());
         $student = new Student();
  
-        $student->id = $request->id;
+        // $student->id = $request->id;
         $student->name = $request->name;
         $student->chinese = $request->chinese;
         $student->english = $request->english;
@@ -86,7 +87,11 @@ class StudentController extends Controller
     public function edit($id)
     {
         // dd('edit ok');
-        dd($id);
+        // dd($id);
+        // first => fetch 單筆資料
+        $data = Student::where('id',$id)->first();
+        // dd($data);
+        return view('student.edit',['data'=>$data]);
 
         // select one data
         // return view data
@@ -101,7 +106,29 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+// array:4 [▼
+//   "name" => "text"
+//   "chinese" => "123"
+//   "english" => "123"
+//   "math" => "123"
+// ]
+
+
+        // dd('update ok');
+        $input = $request->except(['_method','_token']) ;
+        // dd($input['name']);
+
+        $data = Student::find($id);
+        // dd($data);
+ 
+        $data->name = $input['name'];
+        $data->chinese = $input['chinese'];
+        $data->english = $input['english'];
+        $data->math = $input['math'];
+ 
+        $data->save();
+        return redirect()->route('students.index');
+
     }
 
     /**
