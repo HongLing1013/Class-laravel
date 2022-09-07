@@ -50,8 +50,15 @@
         <td>{{$item->english}}</td>
         <td>{{$item->math}}</td>
         <td>
-          <a href="{{route('students.edit',['student' => $item->id])}}" class="btn btn-warning" role="button">edit</a>
-          <a href="{{route('students.create')}}" class="btn btn-danger" role="button">del</a>
+          <div>
+            {{-- <a href="{{route('students.create')}}" class="btn btn-danger" role="button">del</a> --}}
+            <form action="{{route('students.destroy',['student' => $item->id])}}" method="post">
+              <a href="{{route('students.edit',['student' => $item->id])}}" class="btn btn-warning" role="button">edit</a>
+              @csrf
+              @method('DELETE')
+              <input type="submit" class="btn btn-danger" value="del">
+            </form>
+          </div>
         </td>
       </tr>    
       @endforeach
